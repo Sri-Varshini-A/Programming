@@ -1,3 +1,4 @@
+//Get input for a node - add it before head.
 import java.util.*;
 class node{
     int data;
