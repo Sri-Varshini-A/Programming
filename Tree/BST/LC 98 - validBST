@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return valid(root,Long.MIN_VALUE,Long.MAX_VALUE);
+    }
+    //here the max val and imput cant be same so while we use int.MAX_VALUE 2147483647 we get error
+    public boolean valid(TreeNode root,long min,long max){
+        if(root==null){
+            return true;
+        }if(root.val<max && root.val>min){
+            return valid(root.left,min,root.val) && valid(root.right,root.val,max);
+        }
+        //if either is not in range then false
+        return false;
+    }
+}
