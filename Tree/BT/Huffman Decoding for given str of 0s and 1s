@@ -1,0 +1,23 @@
+//input: String s = 1001001 and root of the huffman tree with char(A,B,C...) as leaf nodes
+//output: ACBDA(reference only)
+
+public class HuffmanDecoding {
+
+    static void decode(String s, Node root) {
+        Node curr = root;
+
+        for (int i = 0; i < s.length(); i++) {
+
+            if (s.charAt(i) == '0')
+                curr = curr.left;
+            else
+                curr = curr.right;
+
+            // Leaf node
+            if (curr.left == null && curr.right == null) {
+                System.out.print(curr.data);
+                curr = root;
+            }
+        }
+    }
+}
